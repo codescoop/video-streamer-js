@@ -1,31 +1,36 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+const path = require('path');
+const webpack = require('webpack');
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-export default {
-  mode: 'development',
-  entry: './src/index.js',
+module.exports = {
+  entry: './src/index.js', // where initializePlayer is exported
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public'),
-    library: {
-      name: 'video-streamer-js',
-      type: 'window'
-    }
+    filename: 'video-streamer-sdk.js',
+    path: path.resolve(__dirname, 'dist'),
+    library: 'VideoStreamer', // exposes as window.VideoStreamer
+    libraryTarget: 'umd',
+    globalObject: 'this',
   },
+  mode: 'production',
   resolve: {
     extensions: ['.js'],
     fallback: {
-      fs: false
-    }
+      stream: require.resolve('stream-browserify'),
+      buffer: require.resolve('buffer/'),
+    },
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+      process: 'process/browser', // Optional: needed if any module uses `process`
+    }),
+  ],
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader', // if you're using ES6
+      },
+    ],
   },
-  devServer: {
-    static: path.join(__dirname, 'public'),
-    port: 3000,
-    open: true
-  }
 };
