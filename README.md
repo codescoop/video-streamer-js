@@ -1,4 +1,4 @@
-# 🎬 Online Video Player
+# 🎬 Video Streamer
 
 A simple, lightweight, yet powerful **web-based video player** built using [Video.js](https://videojs.com/). Designed to support modern streaming protocols and playback requirements including **HLS**, **DASH**, **DRM**, and **Ad Monetization**.
 
