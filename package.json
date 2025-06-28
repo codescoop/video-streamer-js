@@ -1,0 +1,47 @@
+{
+  "name": "video-streamer-js",
+  "version": "1.0.0",
+  "description": "A lightweight, powerful Video.js-based web player supporting HLS, DASH, DRM, and Ad Monetization.",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "webpack serve --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codescoop/video-streamer-js.git"
+  },
+  "dependencies": {
+    "dashjs": "^4.6.0",
+    "video.js": "^8.10.0",
+    "videojs-contrib-dash": "^3.0.0",
+    "videojs-contrib-eme": "^3.9.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "keywords": [
+    "video",
+    "player",
+    "video",
+    "streamer",
+    "videojs",
+    "player",
+    "hls",
+    "player",
+    "dash",
+    "player",
+    "web",
+    "video",
+    "player"
+  ],
+  "author": "Yogesh Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codescoop/video-streamer-js/issues"
+  },
+  "homepage": "https://github.com/codescoop/video-streamer-js#readme"
+}
