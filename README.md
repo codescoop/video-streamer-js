@@ -27,6 +27,65 @@ A simple, lightweight, yet powerful **web-based video player** built using [Vide
 
 ---
 
+## 🧑‍💻 How to Use
+
+In Vanilla HTML
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Video Streamer</title>
+  </head>
+  <body>
+    <video
+      id="my-video"
+      class="video-js"
+      controls
+      width="640"
+      height="360"
+    ></video>
+
+    <script src="./dist/video-streamer-sdk.js"></script>
+    <script>
+      VideoStreamer.initializePlayer({
+        videoId: 'my-video',
+        videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
+      });
+    </script>
+  </body>
+</html>
+```
+
+In React
+ ```
+ import React, { useEffect } from 'react';
+import 'video.js/dist/video-js.css'; 
+import { initializePlayer } from 'video-streamer-js'; 
+
+export default function App() {
+  useEffect(() => {
+    const player = initializePlayer({
+      videoId: 'my-video',
+      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    });
+
+    return () => {
+      player?.dispose();
+    };
+  }, []);
+
+  return (
+    <video
+      id="my-video"
+      className="video-js"
+      controls
+      width="640"
+      height="360"
+    ></video>
+  );
+}
+ ```
+---
 
 ## 📦 Tech Stack
 
